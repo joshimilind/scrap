@@ -6,12 +6,13 @@ import scala.collection.JavaConversions._
 
 object Web extends App {
   println("-----")
+//  var = depth
   def crawl(url: String, depth: Int) {
-    var depth1 = depth
+//    var depth1 = depth
 
     var diggedurls: String = ""
 
-    if(depth1 > 0)
+    if(depth > 0)
     try {
 
 
@@ -28,7 +29,10 @@ object Web extends App {
         println(s"urls-----$diggedurls")
         println(s"\n \t ${cnt}) title : " + link.text)
         println("\t     link : " + link.attr("href"))
-        depth1 -=1
+//        depth -= 1
+        println("\ncurrentdepth" + depth)
+        crawl("https://mail.google.com/mail/u/0/#inbox",depth-1)
+
       }
 
 
@@ -41,5 +45,5 @@ object Web extends App {
     }
   }
 
-  crawl("https://www.google.com", 2)
+  crawl("https://www.google.com", 3)
 }
